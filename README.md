@@ -48,7 +48,6 @@ The synthetic dataset, which forms the bedrock of our model's knowledge, was eng
 
 The platform is designed as a scalable, containerized system using a microservices architecture. This ensures modularity, resilience, and ease of deployment.
 
-![System Architecture Diagram](https://architecture-diagram.png)  <!-- You would create and link a diagram here -->
 
 ### The Pipeline Services:
 
@@ -67,14 +66,14 @@ The platform is designed as a scalable, containerized system using a microservic
     - **Stack:** Python, Flask, Pandas
 
 5.  **Prediction Service (Python):** The final ML inference engine.
-    - **Role:** Loads the trained XGBoost model and SHAP explainer to generate the final prediction and explanation.
-    - **Stack:** Python, Flask, XGBoost, SHAP, Scikit-learn
+    - **Role:** Loads the trained Isolation Forest model and SHAP explainer to generate the final prediction and explanation.
+    - **Stack:** Python, Flask, Isolation Forest, SHAP, Scikit-learn
 
 ### Technical Stack Summary:
 
 -   **Frontend:** HTML5, CSS3, JavaScript
 -   **Backend & APIs:** Node.js, Python (Flask)
--   **Machine Learning:** XGBoost, Scikit-learn, SHAP, Pandas
+-   **Machine Learning:** Isolation Forest, Scikit-learn, SHAP, Pandas
 -   **Containerization & Orchestration:** Docker, Docker Compose
 
 ---
@@ -95,7 +94,7 @@ This pipeline is executed in **Phase 2** to produce the final, high-performance 
 **`Step 2: Unsupervised Knowledge Refinement`**
 -   **Input:** The massive 100,000+ user synthetic dataset (from **Phase 1**) and the `foundation_model.joblib`.
 -   **Process:**
-    1.  KMeans clustering is used on the synthetic data to identify inherent behavioral risk groups, creating a `cluster_risk_label`.
+    1.  KMeans clustering(IF) is used on the synthetic data to identify inherent behavioral risk groups, creating a `cluster_risk_label`.
     2.  The `foundation_model` is then **fine-tuned** by continuing its training on this massive, cluster-labeled dataset.
 -   **Output:** The `final_credit_risk_model.joblib` and its `final_shap_explainer.joblib`. This model now combines the specific default knowledge with a broad, generalized understanding of population behavior.
 
