@@ -1,8 +1,5 @@
-# FinSheild_Hackathon
-
 # Next-Generation Credit Risk Management for the Underbanked
 
-**Team:** altDataAlchemists
 **Project:** An end-to-end, AI-powered system to assess credit risk using alternative data, designed to promote financial inclusion for underbanked populations in emerging markets.
 
 ---
